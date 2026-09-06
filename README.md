@@ -20,4 +20,4 @@ Edit `index.html` for content and `style.css` for appearance. Replace `assets/po
 - https://github.com/daniel7an — GitHub profile.
 - Site image supplied by Tatul.
 
-The introduction is draft copy for review. Public email, X, Scholar, and CV links can be added once confirmed. Projects are intentionally omitted from v1.
+The introduction is draft copy for review. Public email and CV links can be added once confirmed. Projects are intentionally omitted from v1.
