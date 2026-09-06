@@ -23,7 +23,8 @@ h1{font-size:39px;line-height:1.15;letter-spacing:-1.5px;font-weight:650;margin:
 .role a:hover{color:var(--link);text-decoration-color:currentColor}
 p{margin:0 0 16px}
 strong{font-weight:600}
-.portrait{width:160px;height:160px;object-fit:cover;border-radius:6px;margin-top:6px;background:var(--line)}
+.portrait{width:160px;height:160px;object-fit:cover;margin-top:6px;filter:invert(1);mix-blend-mode:multiply}
+:root[data-theme="dark"] .portrait{filter:none;mix-blend-mode:screen}
 .links{display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap;font-size:14px;margin-top:22px}
 .links span{font-size:12px;margin-left:2px}
 
