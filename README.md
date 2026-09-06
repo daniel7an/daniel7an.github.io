@@ -17,6 +17,7 @@ Edit `index.html` for content and `style.css` for appearance. Replace `assets/po
 - https://arxiv.org/abs/2609.03611 — FailBench title, authors, and summary.
 - https://arxiv.org/abs/2608.29284 — Uzbek Legal RAG title, authors, and acceptance status.
 - https://www.linkedin.com/in/tatul-danielyan/ — university and study years.
-- https://github.com/daniel7an — portrait and GitHub profile.
+- https://github.com/daniel7an — GitHub profile.
+- Site image supplied by Tatul.
 
 The introduction is draft copy for review. Public email, X, Scholar, and CV links can be added once confirmed. Projects are intentionally omitted from v1.
