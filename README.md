@@ -2,7 +2,7 @@
 
 Minimal personal website for https://daniel7an.github.io/.
 
-Plain HTML and CSS, with no build step or JavaScript dependencies.
+Plain HTML and CSS with no build step and no dependencies. The only JavaScript is ~14 inline lines driving the light/dark toggle; the page renders correctly without it, in light.
 
 ## Preview
 
@@ -20,4 +20,4 @@ Edit `index.html` for content and `style.css` for appearance. Replace `assets/po
 - https://github.com/daniel7an — GitHub profile.
 - Site image supplied by Tatul.
 
-The introduction is draft copy for review. Public email and CV links can be added once confirmed. Projects are intentionally omitted from v1.
+The introduction is draft copy for review. The CV button links to `assets/cv.pdf`, which is not committed yet — drop the PDF at that path to make it live. Projects are intentionally omitted from v1.
