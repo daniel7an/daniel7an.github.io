@@ -40,8 +40,8 @@ h3 a{color:var(--text)}
 .authors strong{color:var(--text)}
 .paper-description{font-size:14px;line-height:1.65;color:var(--text2);margin-bottom:0}
 .paper-links{margin-top:12px;font-size:13px}
-.background-row{display:flex;justify-content:space-between;gap:20px}
-.background-row h3{font-size:15px}
+.background-row{display:flex;flex-direction:column;gap:2px}
+.background-row h3{font-size:15px;margin-bottom:4px}
 .background-row p,.dates{color:var(--muted);font-size:13px;margin:0}
 .dates{white-space:nowrap}
 .skip-link{position:absolute;left:16px;top:-80px;background:var(--bg);padding:8px;z-index:2}
@@ -68,5 +68,4 @@ h3 a{color:var(--text)}
   section:not(.intro){display:block;padding:40px 0 0}
   section:not(.intro)>h2{margin-bottom:18px;padding-top:0}
   h3{font-size:16px}
-  .background-row{flex-direction:column;gap:4px}
 }
