@@ -1,0 +1,8 @@
+name = "visitor-map"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+# Run `npx wrangler kv namespace create VISITS` once and paste the id it prints here.
+[[kv_namespaces]]
+binding = "VISITS"
+id = "3949f4f7c9ac48e399fff298cabd3f71"
