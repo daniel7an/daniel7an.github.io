@@ -38,7 +38,12 @@ strong{font-weight:600}
 .ico{width:14px;height:14px;flex:none;opacity:.85}
 
 section:not(.intro){display:grid;grid-template-columns:128px 1fr;gap:0 28px;align-items:start;padding:56px 0 0}
-section:not(.intro)>h2{grid-column:1;font-size:var(--fs-md);line-height:1.4;font-weight:600;color:var(--text2);margin:0;padding-top:4px}
+/* Section labels act as the page outline: each stays pinned in the left column while its section scrolls past. */
+section:not(.intro)>h2{grid-column:1;grid-row:1/span 20;align-self:start;position:sticky;top:24px;font-size:var(--fs-md);line-height:1.4;font-weight:600;color:var(--text2);margin:0;padding-top:4px}
+section:not(.intro)>h2 a{color:inherit}
+section:not(.intro)>h2 a:hover{color:var(--text);text-decoration:none}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 section:not(.intro)>*:not(h2){grid-column:2}
 
 .paper+.paper{margin-top:42px}
@@ -59,6 +64,7 @@ h3 a{color:var(--text)}
 .ov-tag{top:6px;padding:3px 5px;border-radius:3px;background:rgba(10,12,14,.7)}
 .ov-event{top:23px;padding:3px 5px;border-radius:3px;background:#c8413b}
 .ov-event.warn{background:#b7791f}
+.ov-slow{right:6px;bottom:10px;padding:3px 5px;border-radius:3px;background:rgba(10,12,14,.7);font-weight:500;font-style:italic}
 .ov-ok{bottom:10px;padding:3px 5px;border-radius:3px;background:#2e7d52}
 .ov-ok::before{content:"\2713\00a0"}
 .ov-ring{width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #ff6b5e;border-radius:50%;box-shadow:0 0 0 2px rgba(0,0,0,.35)}
@@ -77,15 +83,7 @@ h3 a{color:var(--text)}
 .ov-track{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.22);pointer-events:none}
 .ov-track i{position:absolute;inset:0;background:rgba(255,255,255,.8);transform-origin:left;transform:scaleX(0)}
 .ov-track b{position:absolute;top:-2px;width:3px;height:7px;margin-left:-1px;border-radius:1px;background:#ff6b5e}
-.media-open{position:absolute;inset:0;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}
-.media-open:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:6px}
-.paper-media.reduce .media-open{inset:6px 6px auto auto;width:22px;height:22px;border-radius:4px;background:rgba(10,12,14,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f4f3ef' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center/14px no-repeat}
-.paper-media.reduce .ov-track{display:none}
-.figure-viewer{max-width:min(1100px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:8px;background:#fff;overflow:auto}
-.figure-viewer::backdrop{background:rgba(8,9,10,.78)}
-.figure-viewer img{display:block;max-width:100%;height:auto}
-.figure-viewer form{position:sticky;top:0;height:0;text-align:right}
-.fv-close{margin:8px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(10,12,14,.75);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.paper-media.reduce .paper-media.reduce .ov-track{display:none}
 @media(prefers-reduced-motion:reduce){.ov{transition:none}.ov-ring.on{animation:none}}
 .pipeline text{font:600 9.5px var(--sans);fill:var(--text);text-anchor:middle}
 .pipeline .pl-role{font-weight:400;font-size:7.5px;fill:var(--muted)}
@@ -93,6 +91,10 @@ h3 a{color:var(--text)}
 .pipeline .pl-name-ours{fill:var(--link)}
 .pipeline .pl-lane{font-weight:600;font-size:7.5px;fill:var(--muted);text-anchor:start;letter-spacing:.02em}
 .pipeline .pl-lane-r{text-anchor:end}
+.pl-hl{fill:none;stroke:var(--link);stroke-width:1.6}
+.pl-chip{fill:var(--link)}
+.pl-cite rect{fill:var(--chip);stroke:var(--link);stroke-width:.8}
+.pipeline .pl-cite text{font-size:7px;fill:var(--link)}
 .pl-dash{stroke-dasharray:2 2}
 .pl-corpus{fill:var(--chip);stroke:var(--muted);stroke-width:.8;stroke-dasharray:2 1.5}
 .pl-bg{fill:var(--chip)}
@@ -155,7 +157,7 @@ h3 a{color:var(--text)}
   .intro-copy>p:not(.role),.intro-copy>.links{grid-column:1/-1;margin:0}
   .lead{font-size:19px}
   section:not(.intro){display:block;padding:40px 0 0}
-  section:not(.intro)>h2{margin-bottom:18px;padding-top:0}
+  section:not(.intro)>h2{position:static;margin-bottom:18px;padding-top:0}
   .background-row{flex-direction:column}
   .news li{grid-template-columns:1fr;gap:0;padding:8px 0}
   .news-more summary{margin-left:0}
