@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&amp;display=swap">
-  <link rel="stylesheet" href="style.css?v=20261125f">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
+  <link rel="stylesheet" href="style.css?v=20261125h">
   <title>Tatul Danielyan | AI Researcher</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
         <div class="intro-copy">
           <h1 id="name">Tatul Danielyan</h1>
           <p class="role">Researcher at <a href="https://metricailab.com"><img class="logo" src="assets/metric.svg" alt="" width="14" height="14">Metric AI Lab</a></p>
-          <p>I work on robot learning and embodied AI, with a focus on reliable manipulation, failure detection and recovery, and policy evaluation.</p>
+          <p class="lead">I work on robot learning and embodied AI, with a focus on reliable manipulation, failure detection and recovery, and policy evaluation.</p>
           <nav class="links profile-links" aria-label="Contact and profiles">
             <a href="assets/cv.pdf"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8M16 13H8M16 17H8"/></svg>CV</a>
             <a href="mailto:tatul.danielyan.s@gmail.com"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a>
@@ -65,50 +65,85 @@
       <section aria-labelledby="research-title">
         <h2 id="research-title">Research</h2>
         <article class="paper has-media">
-          <figure class="paper-media">
-            <video src="assets/media/robograde.mp4" poster="assets/media/robograde.jpg" width="440" height="330" muted loop playsinline autoplay preload="metadata" aria-label="Two robot runs inserting a cylinder into a board, seen from the wrist camera. The left run is clean and scores 5.0; in the right run the robot drops the cylinder, grasps it again, and finishes, scoring 4.0. Both count as a success."></video>
-            <span class="media-tag" style="left:6px">REQS 5.0</span><span class="media-tag" style="left:calc(50% + 6px)">REQS 4.0</span>
+          <figure class="paper-media story" data-full="assets/media/robograde-figure.jpg" data-full-alt="RoboGrade overview: two cylinder insertions both count as success, but the one with a drop and a retry scores 4.0 instead of 5.0 under the Robotic Execution Quality Score.">
+            <video src="assets/media/robograde.mp4" poster="assets/media/robograde.jpg" width="440" height="330" muted loop playsinline autoplay preload="metadata" aria-label="Two robot runs inserting a cylinder into a board, seen from the wrist camera. The left run is clean. In the right run the robot drops the cylinder, grasps it again, and finishes. Both count as a success; RoboGrade scores them 5.0 and 4.0."></video>
+            <span class="ov ov-tag" style="left:6px" data-from="0" data-to="12">Clean run</span>
+            <span class="ov ov-tag" style="left:calc(50% + 6px)" data-from="0" data-to="12">Drop + retry</span>
+            <span class="ov ov-ring" style="left:88%;top:60%" data-from="4.5" data-to="5.6"></span>
+            <span class="ov ov-event" style="left:calc(50% + 6px)" data-from="4.5" data-to="5.6">Dropped</span>
+            <span class="ov ov-event warn" style="left:calc(50% + 6px)" data-from="5.6" data-to="8">Regrasp</span>
+            <span class="ov ov-ok" style="left:6px" data-from="6.8" data-to="12">Success</span>
+            <span class="ov ov-ok" style="left:calc(50% + 6px)" data-from="11.7" data-to="12">Success</span>
+            <div class="ov ov-card" data-from="12" data-to="99">
+              <table>
+                <thead><tr><th></th><th>Clean</th><th>Drop + retry</th></tr></thead>
+                <tbody>
+                  <tr><th>Success</th><td>1</td><td>1</td></tr>
+                  <tr><th>Harm</th><td>none</td><td class="neg">&minus;0.5</td></tr>
+                  <tr><th>Retries</th><td>0</td><td class="neg">&minus;0.5</td></tr>
+                  <tr class="total"><th>REQS</th><td>5.0</td><td class="neg">4.0</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="ov-track" aria-hidden="true"><i></i><b style="left:30.5%"></b></div>
+            <button class="media-open" type="button" aria-label="View the full RoboGrade figure"></button>
           </figure>
           <div class="paper-body">
             <div class="paper-meta"><span class="venue pending">Under review</span><span>2026</span></div>
             <h3><a href="https://drive.google.com/file/d/1b45NIzJ-IWcFIV9rIdfehMAO4Ludr-r0/view">RoboGrade: Measuring Robotic Execution Quality Beyond Binary Success</a></h3>
             <p class="authors">Zaruhi Navasardyan, <strong>Tatul Danielyan</strong>, M. Hamazaspyan, Hrant Davtyan</p>
             <p class="paper-description">A benchmark of ~2,300 manipulation episodes from 23 sources and 15 robot embodiments, with a 0-5 execution-quality score reaching 80% agreement with human preferences.</p>
-            <div class="links paper-links"><a href="https://drive.google.com/file/d/1b45NIzJ-IWcFIV9rIdfehMAO4Ludr-r0/view">Paper <span aria-hidden="true">↗</span></a></div>
+            <div class="links paper-links"><a href="https://drive.google.com/file/d/1b45NIzJ-IWcFIV9rIdfehMAO4Ludr-r0/view">Paper</a></div>
           </div>
         </article>
         <article class="paper has-media">
-          <figure class="paper-media">
+          <figure class="paper-media story" data-full="assets/media/failbench-figure.jpg" data-full-alt="FailBench Figure 2: the apple is dropped from the gripper at about 63 seconds and never reaches the bowl; the bowl is empty in every later frame. Gemma-4-31B-it answered success.">
             <video src="assets/media/failbench.mp4" poster="assets/media/failbench.jpg" width="440" height="330" muted loop playsinline autoplay preload="metadata" aria-label="A robot arm carries an apple toward a blue bowl and drops it on the way; the bowl stays empty. Gemma-4-31B-it still answered success."></video>
-            <span class="media-tag" style="left:6px">VLM verdict: success</span>
+            <span class="ov ov-tag" style="left:6px" data-from="0" data-to="10.4">Task: put the apple in the bowl</span>
+            <span class="ov ov-ring" style="left:33%;top:70%" data-from="2.8" data-to="3.7"></span>
+            <span class="ov ov-event" style="left:6px" data-from="3.1" data-to="5.6">Apple dropped</span>
+            <span class="ov ov-event" style="left:6px" data-from="5.6" data-to="10.4">Bowl still empty</span>
+            <div class="ov ov-card ov-verdict" data-from="10.4" data-to="99">
+              <span class="ov-k">VLM verdict</span>
+              <strong>Success <span class="x" aria-hidden="true">&#x2717;</span></strong>
+              <span class="ov-k">Ground truth: failure<br>(the bowl is empty)</span>
+            </div>
+            <div class="ov-track" aria-hidden="true"><i></i><b style="left:24%"></b></div>
+            <button class="media-open" type="button" aria-label="View FailBench Figure 2"></button>
           </figure>
           <div class="paper-body">
             <div class="paper-meta"><span class="venue pending">Under review</span><span>2026</span></div>
             <h3><a href="https://arxiv.org/abs/2609.03611">FailBench: How Reliable are VLMs at Judging Robot Task Success?</a></h3>
             <p class="authors">Zaruhi Navasardyan, <strong>Tatul Danielyan</strong>, Hrant Davtyan</p>
             <p class="paper-description">A benchmark of 2,197 robot manipulation episodes from 14 datasets, with a curation and evaluation pipeline for 13 VLM success detectors.</p>
-            <div class="links paper-links"><a href="https://arxiv.org/abs/2609.03611">arXiv <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/pdf/2609.03611">PDF <span aria-hidden="true">↗</span></a><a href="https://metric-ai-lab.github.io/failbench/">Project <span aria-hidden="true">↗</span></a></div>
+            <div class="links paper-links"><a href="https://arxiv.org/abs/2609.03611">arXiv</a><a href="https://arxiv.org/pdf/2609.03611">PDF</a><a href="https://metric-ai-lab.github.io/failbench/">Project</a></div>
           </div>
         </article>
         <article class="paper has-media">
-          <figure class="paper-media">
-            <svg class="pipeline" viewBox="0 0 200 150" role="img" aria-label="One retrieval pipeline with two stacks: a question goes to a cloud stack and to an on-premises stack using UTE-1, and both return an answer with citations.">
+          <figure class="paper-media" data-full="assets/media/legal-poster.jpg" data-full-alt="EMNLP 2026 poster: Cloud and On-Premises Deployment of Uzbek Legal RAG via Targeted Retriever Fine-Tuning.">
+            <svg class="pipeline" viewBox="0 0 200 150" role="img" aria-label="Two deployment stacks answer a legal question from the lex.uz corpus. Cloud: Gemini Embedding 001 retriever and Gemini 3 Flash generator. On-premises: our UTE-1 retriever and Qwen 3.6 generator. Both return an answer that cites the provisions it used.">
               <rect class="pl-bg" width="200" height="150" rx="6"/>
-              <path class="pl-edge" d="M100 34 L52 54 M100 34 L148 54 M52 96 L100 116 M148 96 L100 116"/>
-              <rect class="pl-box" x="62" y="12" width="76" height="22" rx="4"/><text x="100" y="27">Question</text>
-              <rect class="pl-box" x="12" y="54" width="80" height="42" rx="4"/><text x="52" y="72">Cloud</text><text class="pl-sub" x="52" y="86">Gemini</text>
-              <rect class="pl-box pl-ours" x="108" y="54" width="80" height="42" rx="4"/><text x="148" y="72">On-prem</text><text class="pl-sub" x="148" y="86">UTE-1 + Qwen</text>
-              <rect class="pl-box" x="50" y="116" width="100" height="22" rx="4"/><text x="100" y="131">Cited answer</text>
-              <circle class="pl-dot" r="3.2"><animateMotion dur="2.8s" repeatCount="indefinite" path="M100 34 L52 54 L52 96 L100 116"/></circle>
-              <circle class="pl-dot pl-dot-ours" r="3.2"><animateMotion dur="2.8s" repeatCount="indefinite" path="M100 34 L148 54 L148 96 L100 116"/></circle>
+              <path class="pl-edge" d="M100 24 V30 H43 V38 M100 30 H157 V38 M43 62 V72 M157 62 V72 M43 96 V106 H157 V96 M100 106 V114"/>
+              <path class="pl-edge pl-dash" d="M80 50 H84 M116 50 H120"/>
+              <rect class="pl-box" x="60" y="6" width="80" height="18" rx="4"/><text x="100" y="18.5">Legal question</text>
+              <text class="pl-lane" x="6" y="34">Cloud</text><text class="pl-lane pl-lane-r" x="194" y="34">On-prem</text>
+              <rect class="pl-box" x="6" y="38" width="74" height="24" rx="4"/><text class="pl-role" x="43" y="47.5">retriever</text><text class="pl-name" x="43" y="57.5">Gemini Emb. 001</text>
+              <rect class="pl-box pl-ours" x="120" y="38" width="74" height="24" rx="4"/><text class="pl-role" x="157" y="47.5">retriever</text><text class="pl-name pl-name-ours" x="157" y="57.5">UTE-1 (ours)</text>
+              <rect class="pl-corpus" x="84" y="42" width="32" height="16" rx="3"/><text class="pl-name" x="100" y="53">lex.uz</text>
+              <rect class="pl-box" x="6" y="72" width="74" height="24" rx="4"/><text class="pl-role" x="43" y="81.5">generator</text><text class="pl-name" x="43" y="91.5">Gemini 3 Flash</text>
+              <rect class="pl-box" x="120" y="72" width="74" height="24" rx="4"/><text class="pl-role" x="157" y="81.5">generator</text><text class="pl-name" x="157" y="91.5">Qwen 3.6 35B</text>
+              <rect class="pl-box" x="40" y="114" width="120" height="30" rx="4"/><text x="100" y="127">Answer with citations</text><text class="pl-role" x="100" y="138">links each cited provision</text>
+              <circle class="pl-dot" r="2.8"><animateMotion dur="3.4s" repeatCount="indefinite" path="M100 24 V30 H43 V106 H100 V114"/></circle>
+              <circle class="pl-dot pl-dot-ours" r="2.8"><animateMotion dur="3.4s" repeatCount="indefinite" path="M100 24 V30 H157 V106 H100 V114"/></circle>
             </svg>
+            <button class="media-open" type="button" aria-label="View the full EMNLP poster"></button>
           </figure>
           <div class="paper-body">
-            <div class="paper-meta"><span class="venue">EMNLP · Industry Track</span><span>2026 · poster</span></div>
+            <div class="paper-meta"><span class="venue">EMNLP 2026 Industry Track</span></div>
             <h3><a href="https://arxiv.org/abs/2608.29284">Cloud and On-Premises Deployment of Uzbek Legal RAG via Targeted Retriever Fine-Tuning</a></h3>
             <p class="authors"><strong>Tatul Danielyan</strong>, Mariam Avetisyan, Hrant Davtyan</p>
             <p class="paper-description">Trained and open-sourced UTE-1, a state-of-the-art open Uzbek text embedder (top-5 retrieval 87.6% to 91.6%), for a legal RAG assistant serving ~30k queries/month in cloud and on-premises deployments.</p>
-            <div class="links paper-links"><a href="https://arxiv.org/abs/2608.29284">arXiv <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/pdf/2608.29284">PDF <span aria-hidden="true">↗</span></a><a href="https://metric-ai-lab.github.io/Uzbek-Legal-RAG/">Project <span aria-hidden="true">↗</span></a></div>
+            <div class="links paper-links"><a href="https://arxiv.org/abs/2608.29284">arXiv</a><a href="https://arxiv.org/pdf/2608.29284">PDF</a><a href="https://metric-ai-lab.github.io/Uzbek-Legal-RAG/">Project</a></div>
           </div>
         </article>
       </section>
@@ -129,6 +164,10 @@
       <p class="updated">Last updated November 2026</p>
     </footer>
   </div>
+  <dialog class="figure-viewer" aria-label="Full figure">
+    <form method="dialog"><button class="fv-close" aria-label="Close">&times;</button></form>
+    <img alt="">
+  </dialog>
   <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="true"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
   <script>
   (function(){
@@ -147,10 +186,38 @@
     // Paper clips: play only while on screen; with reduced motion, show a
     // still frame and let the visitor press play.
     var vids=document.querySelectorAll('.paper-media video');
+    // Annotations: each overlay shows while currentTime is within
+    // [data-from, data-to), so labels stay in step with the footage.
+    function syncStory(v){
+      var fig=v.parentNode,ovs=fig.querySelectorAll('.ov'),bar=fig.querySelector('.ov-track i'),raf=0;
+      if(!ovs.length)return;
+      function tick(){
+        var t=v.currentTime;
+        ovs.forEach(function(o){o.classList.toggle('on',t>=+o.dataset.from&&t<+o.dataset.to)});
+        if(bar&&v.duration)bar.style.transform='scaleX('+(t/v.duration)+')';
+        raf=v.paused?0:requestAnimationFrame(tick);
+      }
+      v.addEventListener('play',function(){if(!raf)raf=requestAnimationFrame(tick)});
+      v.addEventListener('seeked',tick);v.addEventListener('loadeddata',tick);
+      tick();
+    }
+    // Clicking a thumbnail opens the full figure from the paper.
+    var dlg=document.querySelector('.figure-viewer');
+    if(dlg&&dlg.showModal){
+      var img=dlg.querySelector('img');
+      document.querySelectorAll('.media-open').forEach(function(b){
+        b.addEventListener('click',function(){
+          var f=b.parentNode;img.src=f.dataset.full;img.alt=f.dataset.fullAlt||'';dlg.showModal();
+        });
+      });
+      dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+    }else document.querySelectorAll('.media-open').forEach(function(b){b.hidden=true});
     var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(reduce)document.querySelectorAll('.paper-media svg').forEach(function(s){if(s.pauseAnimations)s.pauseAnimations()});
     vids.forEach(function(v){
-      if(reduce){v.removeAttribute('autoplay');v.pause();v.controls=true;return}
+      if(reduce){v.removeAttribute('autoplay');v.pause();v.controls=true;v.parentNode.classList.add('reduce')}
+      syncStory(v);
+      if(reduce)return;
       if(!('IntersectionObserver' in window))return;
       new IntersectionObserver(function(es){
         es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()});
