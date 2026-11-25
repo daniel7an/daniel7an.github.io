@@ -2,3 +2,8 @@
 output/
 .playwright-cli/
 .wrangler/
+
+# Local files kept out of the public site
+.claude/
+RL-course/
+emnlp-2026/
